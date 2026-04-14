@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企业2026全员AI落地方案 | 三万AI团队</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Smiley Sans';
+      src: url('https://cdn.jsdelivr.net/gh/atelier-anchor/smiley-sans@1.1.1/fonts/SmileySans-Oblique.ttf.woff2') format('woff2');
+      font-weight: normal;
+    }
+
+    :root {
+      --primary: #FF6B35;
+      --primary-dim: rgba(255,107,53,0.15);
+      --primary-border: rgba(255,107,53,0.35);
+      --bg: #0D0D0D;
+      --bg2: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f0f0;
+      --muted: rgba(255,255,255,0.45);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'ZCOOL KuaiLe', 'Smiley Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span { color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,107,53,0.12) 0%, transparent 60%),
+        var(--bg);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-dim);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 88px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 900px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      color: var(--primary);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 19px);
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 56px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-stat { text-align: center; }
+
+    .stat-val {
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+      letter-spacing: 0.08em;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: inherit;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .hero-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ── SECTION BASE ── */
+    .section {
+      padding: 100px 24px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-header { margin-bottom: 56px; }
+
+    .section-tag {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.8;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ── STEPS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 28px 32px;
+      transition: border-color 0.25s, transform 0.25s;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .step-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.25s;
+    }
+
+    .step-card:hover {
+      border-color: var(--primary-border);
+      transform: translateY(-4px);
+    }
+
+    .step-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .step-num {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-family: -apple-system, sans-serif;
+    }
+
+    .step-time {
+      background: var(--primary-dim);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .step-icon { font-size: 32px; margin-bottom: 12px; }
+
+    .step-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-family: -apple-system, sans-serif;
+    }
+
+    /* ── RESULTS ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .result-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px 24px;
+      transition: border-color 0.25s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .result-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .result-card:hover { border-color: var(--primary-border); }
+
+    .result-agent {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .result-card h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .result-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .result-footer {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+      font-family: -apple-system, sans-serif;
+    }
+
+    .tag-done {
+      background: rgba(0,230,118,0.1);
+      border: 1px solid rgba(0,230,118,0.25);
+      color: #00e676;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+    }
+
+    /* ── AGENTS ── */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .agent-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 24px;
+      transition: border-color 0.25s, transform 0.25s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .agent-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .agent-card:hover {
+      border-color: var(--primary-border);
+      transform: translateY(-3px);
+    }
+
+    .agent-emoji { font-size: 30px; margin-bottom: 10px; }
+
+    .agent-card h4 { font-size: 16px; margin-bottom: 4px; }
+
+    .agent-model {
+      font-size: 11px;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .agent-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-family: -apple-system, sans-serif;
+    }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      padding: 100px 24px;
+      text-align: center;
+      background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(255,107,53,0.1) 0%, transparent 70%);
+    }
+
+    .quote-section blockquote {
+      max-width: 800px;
+      margin: 0 auto 24px;
+      font-size: clamp(22px, 3.5vw, 44px);
+      line-height: 1.4;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .quote-section blockquote em {
+      color: var(--primary);
+      font-style: normal;
+    }
+
+    .quote-sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 56px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    /* ── QR ── */
+    .qr-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    #qrcode {
+      background: #fff;
+      padding: 12px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    .qr-label {
+      font-size: 13px;
+      color: var(--muted);
+      font-family: -apple-system, sans-serif;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      font-family: -apple-system, sans-serif;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 32px; }
+      .stat-val { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">🦞 <span>三万</span>AI团队</a>
+  <ul class="nav-links">
+    <li><a href="#steps">演示流程</a></li>
+    <li><a href="#results">实际产出</a></li>
+    <li><a href="#agents">团队介绍</a></li>
+  </ul>
+  <a href="#qrcode" class="nav-cta">扫码体验</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🦞 AI团队现场演示 · 2026</div>
+  <h1>企业<em>全员AI落地</em><br>四步完整方案</h1>
+  <p class="hero-sub">从年度战略到季度执行，从数据追踪到对外展示——AI全程参与，每一步都有产出，每一步都计时。</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="stat-val" data-count="59">0</div>
+      <div class="stat-label">秒 · 战略制定</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-val" data-count="53">0</div>
+      <div class="stat-label">秒 · 战略执行</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-val" data-count="63">0</div>
+      <div class="stat-label">秒 · 内容创作</div>
+    </div>
+  </div>
+  <a href="#qrcode" class="hero-btn">扫码体验 →</a>
+</section>
+
+<hr class="divider">
+
+<!-- STEPS -->
+<div id="steps" class="section">
+  <div class="section-header">
+    <div class="section-tag">演示流程</div>
+    <h2 class="section-title">四步递进，全程计时</h2>
+    <p class="section-desc">一条完整的故事线：战略 → 执行 → 数据 → 展示。AI不只是工具，是真正的团队成员。</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-top">
+        <span class="step-num">STEP 01</span>
+        <span class="step-time">⏱ 59秒</span>
+      </div>
+      <div class="step-icon">🧠</div>
+      <h3>参谋·战略制定</h3>
+      <p>五大行业切入框架、三个判断标准、三个必踩的坑。1200字，有数据有判断。</p>
+    </div>
+    <div class="step-card">
+      <div class="step-top">
+        <span class="step-num">STEP 02</span>
+        <span class="step-time">⏱ 53秒</span>
+      </div>
+      <div class="step-icon">📋</div>
+      <h3>运营官·战略执行</h3>
+      <p>OKR四项KR + Q1-Q4路线图 + 三大风险预警 + 第一周行动清单。从战略变成今天就能执行的事。</p>
+    </div>
+    <div class="step-card">
+      <div class="step-top">
+        <span class="step-num">STEP 03</span>
+        <span class="step-time">实时</span>
+      </div>
+      <div class="step-icon">📊</div>
+      <h3>数据运营·实时诊断</h3>
+      <p>把本月数据扔给AI，当场给出：超前还是落后？最大风险在哪？本周必须干预的一件事是什么？</p>
+    </div>
+    <div class="step-card">
+      <div class="step-top">
+        <span class="step-num">STEP 04</span>
+        <span class="step-time">今晚</span>
+      </div>
+      <div class="step-icon">💻</div>
+      <h3>进化官·做成网站</h3>
+      <p>你现在看到的这个网站，就是今晚进化官做的。从零到上线，GitHub Pages部署，全球可访问。</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- RESULTS -->
+<div id="results" class="section">
+  <div class="section-header">
+    <div class="section-tag">实际产出</div>
+    <h2 class="section-title">三个Agent，三份真实产出</h2>
+    <p class="section-desc">不是模板，不是预设答案。每一份产出都是今天现场生成的。</p>
+  </div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-agent">🧠 参谋</div>
+      <h4>AI战略切入分析报告</h4>
+      <p>五大行业全覆盖（制造/零售/金融/教育/医疗），每个行业给出具体数据和切入逻辑。判断框架：频率×痛点密度、黄金数据、失败成本低。</p>
+      <div class="result-footer">
+        <span>1200字 · 五行业数据</span>
+        <span class="tag-done">✓ 59秒完成</span>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-agent">📋 运营官</div>
+      <h4>2026年AI化改造战略执行方案</h4>
+      <p>4个KR（人效/毛利率/AI覆盖/年化节省）、Q1-Q4完整路线图、3大风险预警、第一周5件优先级行动清单。</p>
+      <div class="result-footer">
+        <span>OKR + 路线图 + 风控</span>
+        <span class="tag-done">✓ 53秒完成</span>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-agent">✍️ 笔杆子</div>
+      <h4>公众号文章：53秒，AI帮制造业CEO把全年战略拆完了</h4>
+      <p>1800字，全程脱敏，有故事感，有数据，有判断。从战略会死于执行的痛点切入，到AI如何补上这座桥。</p>
+      <div class="result-footer">
+        <span>1800字 · 全程脱敏</span>
+        <span class="tag-done">✓ 63秒完成</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- AGENTS -->
+<div id="agents" class="section">
+  <div class="section-header">
+    <div class="section-tag">团队构成</div>
+    <h2 class="section-title">不是一个AI，是一支团队</h2>
+    <p class="section-desc">每个角色专注一个方向，7×24小时在岗，没有深夜，没有周末。</p>
+  </div>
+  <div class="agents-grid">
+    <div class="agent-card">
+      <div class="agent-emoji">🧠</div>
+      <h4>参谋</h4>
+      <div class="agent-model">Claude Sonnet 4.6</div>
+      <p>行业研究、竞品分析、战略制定的信息支撑</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">📋</div>
+      <h4>运营官</h4>
+      <div class="agent-model">Claude Haiku</div>
+      <p>OKR拆解、日报生成、执行跟进、审批流程</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">✍️</div>
+      <h4>笔杆子</h4>
+      <div class="agent-model">Claude Sonnet 4.6</div>
+      <p>公众号文章、Thread创作、创始人IP内容</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">💻</div>
+      <h4>进化官</h4>
+      <div class="agent-model">Claude Code</div>
+      <p>脚本开发、网站部署、API对接、系统集成</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">🎨</div>
+      <h4>多媒体官</h4>
+      <div class="agent-model">IMA Studio</div>
+      <p>AI生图、生视频、生音乐、海报配图</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-emoji">🦀</div>
+      <h4>爬虾</h4>
+      <div class="agent-model">Claude Haiku</div>
+      <p>定时巡检、数据抓取、网站监控、自动发布</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- QUOTE + QR -->
+<div id="qrcode-section" class="quote-section">
+  <blockquote>
+    AI没有让战略执行变得不重要<br>
+    它让执行<em>变得没有借口</em>
+  </blockquote>
+  <p class="quote-sub">走，还得是你自己</p>
+  <div class="qr-wrap">
+    <div id="qrcode"></div>
+    <p class="qr-label">扫码访问演示网站 · https://kkirikaze.github.io/ceo-demo/</p>
+  </div>
+</div>
+
+<footer>
+  <p>企业2026全员AI落地方案演示 · 进化官今晚现场制作 · GitHub Pages 部署</p>
+</footer>
+
+<script>
+  // QR Code
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://kkirikaze.github.io/ceo-demo/",
+    width: 160,
+    height: 160,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  // Count-up animation
+  function countUp(el) {
+    const target = parseInt(el.dataset.count);
+    const duration = 1200;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(update);
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.step-card, .result-card, .agent-card').forEach(el => observer.observe(el));
+
+  // Count-up trigger
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('[data-count]').forEach(countUp);
+        statsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const statsEl = document.querySelector('.hero-stats');
+  if (statsEl) statsObserver.observe(statsEl);
+
+  // Trigger hero stats immediately if already visible
+  setTimeout(() => {
+    document.querySelectorAll('[data-count]').forEach(el => {
+      if (el.textContent === '0') countUp(el);
+    });
+  }, 500);
+</script>
+
+</body>
+</html>
